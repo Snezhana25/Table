@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>таблица</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="js/modal.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+
+
+
+	<script>
+		$(document).ready(function() {
+			$("#table").dataTable({
+				aaSorting: [],
+				bPaginate: false,
+				bFilter: false,
+				bInfo: false,
+				bSortable: true,
+				bRetrieve: true,
+				"aoColumnDefs": [
+				{ "bSortable": false, "aTargets": [ 0 ] }
+				] 
+			}); 
+		});
+
+	</script>
+</head>	
+
+<body>
+	<main>
+		<div class="container">
+			<div class="parent">
+				<div class="child">
+					<p class="glyphicon glyphicon-exclamation-sign"><span>Показать модальное окно</span></p>
+					<button type="button" class="btn btn-primary btn-1 btn-1c" data-toggle="modal" data-target="#gridSystemModal">
+						Открыть 
+					</button>
+				</div>
+			</div>	
+			<div id="myModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- description modal -->
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title">Аналитика по площадкам</h4>
+						</div>
+						<!-- content modal -->
+						<div class="modal-body">
+							<div class="tabs">
+
+
+								<input id="tab1" type="radio" name="tabs" checked>
+								<label for="tab1" title="Вкладка 1">Таблица</label>
+
+								<input id="tab2" type="radio" name="tabs">
+								<label for="tab2" title="Вкладка 2">График</label>
+
+
+								<div class="table-responsive tab" id="content-tab1">
+									<p>Аналитика даных в таблице</p>  
+									<table  class="table table-bordered display" id="table" cellspacing="0" >
+										<thead>
+											<tr>
+												<th data-field="preview">Preview</th>
+												<th data-field="data">Время</th>
+												<th data-field="status">Статус</th>
+												<th data-field="platform">Площадка</th>
+												<th data-field="type">Тип</th>
+												<th data-field="price">Цена</th>
+												<th data-field="activity">Активность</th>
+												<th data-field="subscriptions">Подписок</th>
+												<th data-field="gender">Пол</th>
+												<th data-field="age">Возраст</th>
+												<th data-field="cpa">CPA</th>
+												<th data-field="filter"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td></td>
+												<td>
+													<div class="central">
+														<div class="time">
+															<input type="text" placeholder="От"/>
+														</div>
+														<div class="time">
+															<input type="text" placeholder="До"/>
+														</div>
+													</div>	
+												</td>
+												<td>	
+													<div class="grey">
+														<div class="select-arrow-2"></div>
+														<select>
+															<option>Все</option>
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<input type="search" name="serch" placeholder="Поиск...">
+												</td>
+												<td>
+													<div class="grey">
+														<div class="select-arrow-2"></div>
+														<select>
+															<option>E</option>
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<div class="central">
+														<div class="time">
+															<input type="text" placeholder="От"/>
+														</div>
+														<div class="time">
+															<input type="text" placeholder="До"/>
+														</div>
+													</div>	
+												</td>
+												<td>
+													<div class="central">
+														<div class="time">
+															<i class="fa fa-heart" aria-hidden="true"></i>
+															<input type="text" placeholder=". от"/>
+														</div>
+														<div class="time">
+															<i class="fa fa-heart" aria-hidden="true"></i>
+															<input type="text" placeholder=". до"/>
+														</div>
+													</div>	
+												</td>
+
+												<td>
+													<div class="central">
+														<div class="time">
+															<input type="text" placeholder="От"/>
+														</div>
+														<div class="time">
+															<input type="text" placeholder="До"/>
+														</div>
+													</div>	
+												</td>
+												<td>
+													<div class="central">
+														<div class="time">
+															<i class="fa fa-mars" aria-hidden="true"></i>
+															<input type="text" placeholder=". от"/>
+														</div>
+														<div class="time">
+															<i class="fa fa-mars" aria-hidden="true"></i>
+															<input type="text" placeholder=". до"/>
+														</div>
+													</div>	
+												</td>
+												<td>
+													<div class="grey">
+														<div class="select-arrow-2"></div>
+														<select>
+															<option>Все</option>
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<div class="central">
+														<div class="time">
+															<input type="text" placeholder="От"/>
+														</div>
+														<div class="time">
+															<input type="text" placeholder="До"/>
+														</div>
+													</div>	
+												</td>
+												<td>
+													<i class="fa fa-filter" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i>
+												</td>
+											</tr>
+
+											<tr>
+												<td>
+													<img src="img/avatar.png" class="media-photo">
+												</td>
+													<td>16.06.17 <br>16:10</td>
+													<td>
+														<div class="glyphicon glyphicon-ok"></div>
+													</td>
+													<td>
+														<img src="img/smile2.png" class="media-photo"> КиноКайф-Лучшие фильмы<i class="fa fa-vk" aria-hidden="true"></i>
+													</td>
+													<td>
+														<a class="tooltips" href="#"><i class="fa fa-info" aria-hidden="true"></i><span>Information</span></a>
+													</td>
+													<td>
+														7 375 p
+													</td>
+													<td>
+														<div class="like1"><i class="fa fa-heart" aria-hidden="true"></i> 0</div>
+														<div class="like"><i class="fa fa-bullhorn" aria-hidden="true"></i> 0</div>
+														<div class="like"><i class="fa fa-comments" aria-hidden="true"></i> 0</div>
+													</td>
+													<td>0</td>
+													<td><div class="glyphicon glyphicon-ban-circle"></div></td>
+													<td><div class="glyphicon glyphicon-ban-circle"></div></td>
+													<td><div class="glyphicon glyphicon-ban-circle"></div></td>
+													<td><i class="fa fa-info-circle" aria-hidden="true"></i></td>
+												</tr>
+
+												<tr>
+													<td>
+														<img src="img/avatar.png" class="media-photo">
+													</td>
+													<td>
+														16.06.17<br> 09:17
+													</td>
+													<td>
+														<div class="glyphicon glyphicon-ok"></div>
+													</td>
+													<td>
+														<img src="img/smile.png" class="media-photo">  ПРИКОЛЫ|Смеяка<i class="fa fa-vk" aria-hidden="true"></i>
+													</td>
+													<td>
+														<a class="tooltips" href="#"><i class="fa fa-info" aria-hidden="true"></i><span>Information</span></a>
+													</td>
+													<td>
+														7 550 p
+													</td>
+													<td>
+														<div class="like1"><i class="fa fa-heart" aria-hidden="true"></i>22060</div><div class="like"><i class="fa fa-bullhorn" aria-hidden="true"></i>176</div><div class="like"><i class="fa fa-comments" aria-hidden="true"></i>0</div>
+													</td>
+
+													<td>
+														<div class="click">2 875 </div>
+													</td>
+													<td></td>
+													<td></td>
+													<td>
+														<div class="click">2.6р</div>
+
+													</td>
+													<td>
+														<i class="fa fa-info-circle" aria-hidden="true"></i>
+													</td>
+
+												</tr>
+														
+												<tr>
+													<td>
+														<img src="img/photo.jpg" class="media-photo">
+													</td>
+													<td>
+														16.06.17<br> 09:15
+													</td>
+													<td>
+														<div class="glyphicon glyphicon-ok"></div>
+													</td>
+													<td>
+														<img src="img/sacura.png" class="media-photo"> Бот Максим<i class="fa fa-vk" aria-hidden="true"></i>
+													</td>
+													<td>
+														<a class="tooltips" href="#"><i class="fa fa-info" aria-hidden="true"></i><span>Information</span></a>
+													</td>
+													<td>
+														5 162 p
+													</td>
+													<td>
+														<div class="like1"><i class="fa fa-heart" aria-hidden="true"></i>2314</div><div class="like"><i class="fa fa-bullhorn" aria-hidden="true"></i>5</div><div class="like"><i class="fa fa-comments" aria-hidden="true"></i>183</div>
+													</td>
+													<td>
+														<div class="click">1 869</div>
+													</td>
+													<td></td>
+													<td></td>
+													<td>
+														<div class="click">2.8p</div>
+													</td>
+													<td>
+														<i class="fa fa-info-circle" aria-hidden="true"></i>
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<img src="img/images.png" class="media-photo">
+													</td>
+													<td>
+														16.06.17<br> 16:10
+													</td>
+													<td>
+														<i class="fa fa-clone" aria-hidden="true"></i>
+													</td>
+													<td>
+														<img src="img/smile.png" class="media-photo">  ПРИКОЛЫ|Смеяка<i class="fa fa-vk" aria-hidden="true"></i>
+													</td>
+													<td>
+														<a class="tooltips" href="#"><i class="fa fa-info" aria-hidden="true"></i><span>Information</span></a>
+													</td>
+													<td>
+														7 550 p
+													</td>
+													<td>
+														<div class="like1"><i class="fa fa-heart" aria-hidden="true"></i>1792</div><div class="like"><i class="fa fa-bullhorn" aria-hidden="true"></i>741</div><div class="like"><i class="fa fa-comments" aria-hidden="true"></i>0</div>
+													</td>
+													<td>
+														<div class="click">2 466</div>
+													</td>
+													<td></td>
+													<td></td>
+													<td>
+														<div class="click">2.1p</div>
+													</td>
+													<td>
+														<i class="fa fa-info-circle" aria-hidden="true"></i>
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<img src="img/images.png" class="media-photo">
+													</td>
+													<td>
+														16.06.17<br>13:16
+													</td>
+													<td>
+														<i class="fa fa-clock-o" aria-hidden="true"></i>
+													</td>
+													<td>
+														<img src="img/smile.png" class="media-photo">  ПРИКОЛЫ|Смеяка<i class="fa fa-vk" aria-hidden="true"></i>
+													</td>
+													<td>
+														<a class="tooltips" href="#"><i class="fa fa-info" aria-hidden="true"></i><span>Information</span></a>
+													</td>
+													<td>
+														7 550 p
+													</td>
+													<td>
+														<div class="like1"><i class="fa fa-heart" aria-hidden="true"></i>1792</div><div class="like"><i class="fa fa-bullhorn" aria-hidden="true"></i>741</div><div class="like"><i class="fa fa-comments" aria-hidden="true"></i>0</div>
+													</td>
+													<td>
+														<div class="click">2 466</div>
+													</td>
+													<td></td>
+													<td></td>
+													<td>
+														<div class="click">2.1p</div>
+													</td>
+													<td>
+														<i class="fa fa-info-circle" aria-hidden="true"></i>
+													</td>
+												</tr>
+
+											</tbody>
+
+										</table>	
+									</div>
+									<div class="chart" id="content-tab2">
+										<h3>Аналитика данных в графике</h>
+											<div id="container"></div>
+
+										</div>
+									</div><!--end tabs-->	
+								</div> <!--end modal-body-->
+							</div><!--end modal-content-->
+						</div><!--end modal-dialog-->
+					</div> <!--end modal fade-->
+				</div>
+			</main>
+		</body>
+		</html>
+
